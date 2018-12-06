@@ -10,8 +10,8 @@ import numpy as np
 ### Functions ###
 
 def CrossEntropy(yHat, y):
-    if y == 1:
-      return -log(yHat)
+    if yHat == 1:
+      return 0
     else:
       return -log(1 - yHat)
 
