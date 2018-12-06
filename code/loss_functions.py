@@ -10,10 +10,20 @@ import numpy as np
 ### Functions ###
 
 def CrossEntropy(yHat, y):
-    if yHat == 1:
-      return 0
+    eps = 0.000001 # maximum loss is -log(eps)
+    loss = 0
+    if y == 1:
+      # y is positive class
+      if (yHat == 0):
+        yHat = eps
+      loss = -log(yHat)
     else:
-      return -log(1 - yHat)
+      # y is negative class
+      if (yHat = 1):
+        yHat = 1 - eps
+      loss = -log(1 - yHat)
+    # ensure that loss is monotonically increasing
+    return min(-log(eps), loss)
 
 
 def Dice(yHat, y):
